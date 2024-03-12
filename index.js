@@ -1,7 +1,7 @@
 const server = require("./src/server")
 
-const PORT = 8001;
+const PORT = process.env.PORT || 3001;
 
 server.listen(PORT ,() => {
-  console.log(`Films service listening on port ${PORT}`);
+  console.log(`Tournament service listening on port ${PORT}`);
 })

@@ -1,5 +1,5 @@
 const { catchedAsync } = require("../utils");
 
 module.exports = {
-  getChampion: catchedAsync(require("./getChampion")),
+  calculateWinner: catchedAsync(require("./calculateWinner")),
 }

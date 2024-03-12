@@ -7,7 +7,7 @@ const server = express();
 server.use(morgan("dev"));
 server.use(express.json());
 
-server.use("/",router);
+server.use("/", router);
 
 server.use("*", (req, res) => {
   res.status(400).send("Not found");

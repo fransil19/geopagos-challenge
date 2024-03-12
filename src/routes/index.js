@@ -4,8 +4,6 @@ const middlewares = require("../middlewares")
 
 const router = Router();
 
-router.get("/", controllers.getFilms);
-
-router.post("/", middlewares.tournamentMiddleware, controllers.createFilm)
+router.post("/", middlewares.tournamentMiddleware, controllers.getChampion)
 
 module.exports = router;
