@@ -1,3 +1,4 @@
 module.exports = {
-  tournamentMiddleware: require(("./tournamentMiddleware"))
+  tournamentMiddleware: require(("./tournamentMiddleware")),
+  searchMiddleware: require(("./searchMiddleware")),
 }
