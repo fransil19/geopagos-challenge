@@ -5,4 +5,5 @@ module.exports = {
   playerValidation: require("./playerValidation"),
   createPlayer: require("./createPlayer"),
   createTournament: require("./createTournament"),
+  getAllTournaments: require("./getAllTournaments"),
 }
