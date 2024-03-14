@@ -1,4 +1,5 @@
 const {ClientError} = require("../utils/errors")
+const createPlayer = require("./createPlayer")
 
 module.exports = async (player) => {
     if(!player['strength'] || !player['speed'] || !player['reaction'] || !player['level']) throw new ClientError("Please provide all player stats (level, strength, speed, reaction)", 400)

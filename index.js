@@ -1,7 +1,10 @@
-const server = require("./src/server")
+const server = require('./src/server.js');
+const { conn } = require('./src/db.js');
 
 const PORT = process.env.PORT || 3001;
 
-server.listen(PORT ,() => {
-  console.log(`Tournament service listening on port ${PORT}`);
-})
+conn.sync({ force: true }).then(() => {
+  server.listen(PORT, () => {
+    console.log(`Tournament service listening on port ${PORT}`);
+  });
+});

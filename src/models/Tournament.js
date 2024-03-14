@@ -1,21 +1,11 @@
 const { DataTypes } = require('sequelize');
-// Exportamos una funcion que define el modelo
-// Luego le injectamos la conexion a sequelize.
+
 module.exports = (sequelize) => {
-  // defino el modelo
   sequelize.define('tournament', {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true
-    },
-    date: {
-      type: DataTypes.DATEONLY,
-      validate: {
-        notNull: true,
-        notEmpty: true,
-      },
-      allowNull: false,
     },
     gender: {
       type: DataTypes.STRING(1),
@@ -28,5 +18,9 @@ module.exports = (sequelize) => {
         this.setDataValue('gender', value.toLowerCase());
       }
     },
+    champion_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    }
   });
 };

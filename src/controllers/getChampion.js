@@ -1,10 +1,18 @@
 const { response } = require("../utils")
-const {calculateWinner} = require("../services")
+const {calculateWinner, playerValidation, createTournament} = require("../services")
 
 module.exports = async (req, res) => {
   const { players, gender } = req.body;
+  const validatedPlayers = [];
 
-  const winner = await calculateWinner(players, gender)
+  for (const player of players) {
+    const dbPlayer = await playerValidation(player)
+    validatedPlayers.push(dbPlayer)
+  }
 
-  return response(res, 201, {message: `The champion of the tournament is ${winner.name}`, champion: winner})
+  const champion = await calculateWinner(validatedPlayers, gender)
+
+  await createTournament(validatedPlayers, gender, champion)
+  
+  return response(res, 200, {message: `The champion of the tournament is ${champion.name}`, champion: champion})
 }
